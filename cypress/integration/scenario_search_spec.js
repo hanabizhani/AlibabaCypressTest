@@ -76,7 +76,7 @@ describe("Search test", () => {
     cy.contains('جستجو')
     cy.log('Search button found successfully')
 
-    cy.searchAlibaba('ماکو', 'اهواز', {adultCount : 1, childCount : 2, babyCount : 1})
+    cy.searchAlibaba('تهران', 'مشهد', {adultCount : 1, childCount : 2, babyCount : 1})
 
     cy.wait("@getFlighSearchResult")
 
@@ -104,7 +104,6 @@ describe("Search test", () => {
 
   //search should be done inside tasks in order to retry it by condition
   it.skip('searchAlibaba', () => {
-    cy.log('ada')
     cy.task('searchAlibaba')
 
   })
