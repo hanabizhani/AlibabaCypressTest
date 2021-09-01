@@ -37,12 +37,12 @@ The test is written based on old version of Alibaba.ir
 - **You expect me to have solutions for re-using cypress commands.**
     * This is the part I tried my best. I defined too many commands in command.js in order to save reusability
 - **You expect me to handle some edge cases which demonstrate your abilities with cypress timeouts.**
-    * I defined `defaultCommandTimeout` in cypress.json, I use `WaitUntil` and inline timeouts in order to handle that
-    * Use `npm i -D cypress-wait-until` to install `WaitUntil`
+    * For search results I used cy.route() and cy.wait(), in order to wait for results being shown
+    * I defined `defaultCommandTimeout` in cypress.json, and use `WaitUntil` and inline timeouts in order to handle that
 - **You expect me to keep my test scenarios clean and of course reliable.**
     * Hope so :)
     
-    
+
 # Bonus
 - **Write tests for other products (e.g., train, bus, etc.)**
     * Not so much time. Honestly it was the easiest part for me :(
