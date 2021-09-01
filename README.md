@@ -21,8 +21,6 @@ The test is written based on old version of Alibaba.ir
     
 2. scenario_contactus_spec.js:
     - Scroll to the bottom of the page and click on "تماس با ما" in the footer. (This scrolldone as if the mouse was scrolling)
-
-    ![scenario_contactus_spec](https://ufile.io/9hahr8n9)
     
 
 # What do you expect?
