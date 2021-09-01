@@ -1,0 +1,13 @@
+{
+    "baseUrl": "https://www.alibaba.ir",
+    "fixturesFolder": false,
+    "pluginsFile": "./cypress/plugins/index.js",
+    "defaultCommandTimeout": 20000,
+    "retries": 3,
+    "reporter": "../mochawesome/src/mochawesome.js",
+    "reporterOptions": {
+        "overwrite": false,
+        "html": false,
+        "json": true
+    }
+}
