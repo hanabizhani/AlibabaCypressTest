@@ -23,9 +23,13 @@ describe("Contact-us test", () => {
                 .scrollIntoView({ duration: 2000 })
                 .click()
         })
+      
+        //cy.get("li.site-footer__item a[href='/contact-us']")
+          //.scrollIntoView({ duration: 2000 })
+          //.click();
 
         //check if contact-us page loaded successfully
-        cy.contains('فرم تماس' , { timeout: 10000 })
+		    cy.url().should("contain", "contact-us");
 
     })
 
