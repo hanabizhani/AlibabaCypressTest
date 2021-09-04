@@ -78,7 +78,9 @@ describe("Search test", () => {
 
     cy.searchAlibaba('تهران', 'مشهد', {adultCount : 1, childCount : 2, babyCount : 1})
 
-    cy.wait("@getFlighSearchResult")
+    cy.wait("@getFlighSearchResult", {timeout: 80000}).should(({response}) => {
+			expect(response.body.success, "successful query").to.equal(true);
+    });
 
     const functionSearch = (index = 0) => {    
       cy.log('index: ' + index) 
@@ -102,9 +104,22 @@ describe("Search test", () => {
     
   })
 
-  //search should be done inside tasks in order to retry it by condition
-  it.skip('searchAlibaba', () => {
-    cy.task('searchAlibaba')
+  //search with intercept
+  it('searchAlibaba with intercept', () => {
+    cy.searchAlibaba('تهران', 'مشهد', {adultCount : 1, childCount : 2, babyCount : 1})
+
+    cy.wait("@getFlighSearchResult", {timeout: 80000})
+      .should(({response}) => {
+			  expect(response.body.success, "successful query").to.equal(true);
+        if (response.body.result.departing.length === 0) {
+				  cy.get("@result").should("have.class", "empty");
+          cy.log("unsuccessfull search")
+			   } 
+          else {
+				   cy.get("@result").should("not.have.class", "empty");
+            cy.log("successfull search")
+			    }
+		  });
 
   })
 
